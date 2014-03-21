@@ -1,7 +1,7 @@
 import sbt._
 import Keys._
 
-object PluginBuild extends Build {
+object SlickGeneratorBuild extends Build {
 
   lazy val generatorProj = Project(
     id = "slick-generator",
@@ -17,9 +17,5 @@ object PluginBuild extends Build {
     id = "play-evolution-slick-plugin",
     base = file("play-evolution-slick-plugin")
   ) dependsOn generatorProj
-
-  lazy val test = (runner in Compile) map { r =>
-//    r.
-  }
 
 }

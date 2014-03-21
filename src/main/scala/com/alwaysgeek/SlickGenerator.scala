@@ -1,7 +1,5 @@
 package com.alwaysgeek
 
-
-import sbt._
 import scala.slick.driver.{PostgresDriver, JdbcDriver, MySQLDriver}
 import scala.slick.driver.MySQLDriver.simple._
 import scala.slick.jdbc.meta._
