@@ -20,16 +20,22 @@ abstract class SlickPlayEvolutionPlugin(app: Application) extends EvolutionsPlug
   val genPackage: String
   val excludeTables: List[String] = List("play_evolutions")
   val fileCode: String => String = code => code
-  val tableName: String => String = name => name
-  val entityName: String => String = name => name
+  val tableName: Option[String => String] = None // If None : calls super.tableName
+  val entityName: Option[String => String] = None // If None : calls super.entityName
   val tableCode: (Seq[String], String) => Seq[String] = (code, entityName) => code
-  val columnName: String => String = name => unCapitalize(camelCase("(?i)^*(fk)$".r.replaceFirstIn(name, "Id")))
-  val columnType: String => Option[String] = col => Some(col)
+  val columnName: Option[String => String] = None // If None : calls super.rawName
+  val columnType: Option[String => Option[String]] = None // If None : calls super.rawType
   val columnEnabled: String => Boolean = name => true
 
   override def handleWebCommand(request: RequestHeader, sbtLink: SBTLink, path: File): Option[SimpleResult] = {
     val result = super.handleWebCommand(request, sbtLink, path)
 
+    generateTables()
+
+    result
+  }
+
+  def generateTables() = {
     SlickGenerator.generateTablesClasses(
       url,
       user,
@@ -46,8 +52,5 @@ abstract class SlickPlayEvolutionPlugin(app: Application) extends EvolutionsPlug
       columnType,
       columnEnabled
     )
-
-    result
   }
-
 }

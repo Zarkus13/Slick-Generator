@@ -36,11 +36,11 @@ object SlickGenerator {
       genPackage: String,
       excludeTables: List[String] = List(),
       fileCode: String => String = code => code,
-      tableName: String => String = name => name,
-      entityName: String => String = name => name,
+      tableName: Option[String => String] = None, // If None : calls super.tableName
+      entityName: Option[String => String] = None, // If None : calls super.entityName
       tableCode: (Seq[String], String) => Seq[String] = (code, entityName) => code,
-      columnName: String => String = name => unCapitalize(camelCase("(?i)^*(fk)$".r.replaceFirstIn(name, "Id"))),
-      columnType: String => Option[String] = col => Some(col),
+      columnName: Option[String => String] = None, // If None : calls super.rawName
+      columnType: Option[String => Option[String]] = None, // If None : calls super.rawType
       columnEnabled: String => Boolean = name => true
    ) = {
 
@@ -67,9 +67,9 @@ object SlickGenerator {
 
           val codeGen = new SourceCodeGenerator(model) {
 
-            override def tableName: (String) => String = tName
+            override def tableName: (String) => String = tName getOrElse super.tableName
 
-            override def entityName: (String) => String = eName
+            override def entityName: (String) => String = eName getOrElse super.entityName
 
             override def code = fileCode(super.code)
 
@@ -80,14 +80,23 @@ object SlickGenerator {
               override def Column = new Column(_) {
                 override def enabled: Boolean = columnEnabled(model.name)
 
-                override def rawName: String = columnName(model.name)
+                override def rawName: String = columnName match {
+                  case None => super.rawName
+                  case Some(columnName) => columnName(model.name)
+                }
 
-                override def rawType = columnType(model.tpe) getOrElse parseType(model.tpe)
+                override def rawType = columnType match {
+                  case None => super.rawType
+                  case Some(columnType) => columnType(model.tpe) getOrElse parseType(model.tpe)
+                }
               }
             }
           }
 
-          val taName = tableName(t.name.name)
+          val taName = (tableName match {
+            case None => codeGen.tableName
+            case Some(f) => f
+          })(t.name.name)
 
           codeGen.writeToFile(
             driver.slickDriver,

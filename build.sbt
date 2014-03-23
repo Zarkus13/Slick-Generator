@@ -1,7 +1,7 @@
 
-name := "slick-generator"
-
 organization := "com.alwaysgeek"
+
+name := "slick-generator"
 
 version := "0.1.0"
 
