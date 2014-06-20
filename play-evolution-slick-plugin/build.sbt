@@ -3,12 +3,12 @@ organization := "com.alwaysgeek"
 
 name := "play-evolution-slick-plugin"
 
-version := "0.1.0"
+version := "0.1.1"
 
 libraryDependencies ++= Seq(
-  "com.typesafe.play" %% "play" % "2.2.1",
-  "com.typesafe.play" %% "play-jdbc" % "2.2.1",
-  "com.alwaysgeek" %% "slick-generator" % "0.1.0"
+  "com.typesafe.play" %% "play" % "2.2.2",
+  "com.typesafe.play" %% "play-jdbc" % "2.2.2",
+  "com.alwaysgeek" %% "slick-generator" % "0.1.1"
 )
 
 resolvers += "Typesafe repository" at "http://repo.typesafe.com/typesafe/releases/"
