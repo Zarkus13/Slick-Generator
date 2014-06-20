@@ -39,6 +39,7 @@ object SlickGenerator {
       tableName: Option[String => String] = None, // If None : calls super.tableName
       entityName: Option[String => String] = None, // If None : calls super.entityName
       tableCode: (Seq[String], String) => Seq[String] = (code, entityName) => code,
+      tableQueryName: String => String = pluralize,
       columnName: Option[String => String] = None, // If None : calls super.rawName
       columnType: Option[String => Option[String]] = None, // If None : calls super.rawType
       columnEnabled: String => Boolean = name => true
@@ -76,6 +77,10 @@ object SlickGenerator {
             override def Table = new Table(_) {
 
               override def code = tableCode(super.code, entityName(model.name.table))
+
+              override def TableValue = new TableValue{
+                override def rawName = tableQueryName(super.rawName)
+              }
 
               override def Column = new Column(_) {
                 override def enabled: Boolean = columnEnabled(model.name)

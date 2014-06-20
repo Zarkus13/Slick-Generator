@@ -3,7 +3,7 @@ organization := "com.alwaysgeek"
 
 name := "slick-generator"
 
-version := "0.1.1"
+version := "0.1.2"
 
 libraryDependencies ++= Seq(
   "com.typesafe.slick" %% "slick" % "2.0.2",

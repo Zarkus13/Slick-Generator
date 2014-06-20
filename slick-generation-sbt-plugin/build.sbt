@@ -3,10 +3,10 @@ organization := "com.alwaysgeek"
 
 name := "slick-generation-sbt-plugin"
 
-version := "0.1.1"
+version := "0.1.2"
 
 sbtPlugin := true
 
 libraryDependencies ++= Seq(
-  "com.alwaysgeek" %% "slick-generator" % "0.1.1"
+  "com.alwaysgeek" %% "slick-generator" % "0.1.2"
 )

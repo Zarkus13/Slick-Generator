@@ -23,6 +23,7 @@ abstract class SlickPlayEvolutionPlugin(app: Application) extends EvolutionsPlug
   val tableName: Option[String => String] = None // If None : calls super.tableName
   val entityName: Option[String => String] = None // If None : calls super.entityName
   val tableCode: (Seq[String], String) => Seq[String] = (code, entityName) => code
+  val tableQueryName: String => String = pluralize
   val columnName: Option[String => String] = None // If None : calls super.rawName
   val columnType: Option[String => Option[String]] = None // If None : calls super.rawType
   val columnEnabled: String => Boolean = name => true
@@ -48,6 +49,7 @@ abstract class SlickPlayEvolutionPlugin(app: Application) extends EvolutionsPlug
       tableName,
       entityName,
       tableCode,
+      tableQueryName,
       columnName,
       columnType,
       columnEnabled
