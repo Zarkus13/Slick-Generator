@@ -2,10 +2,12 @@ organization := "com.kollecti"
 
 name := "slick-generator"
 
-version := "0.1.2.1"
+scalaVersion := "2.11.4"
+
+version := "0.1.3"
 
 libraryDependencies ++= Seq(
-  "com.typesafe.slick" %% "slick" % "2.0.3",
+  "com.typesafe.slick" %% "slick-codegen" % "2.1.0",
   "mysql" % "mysql-connector-java" % "5.1.21"
 )
 

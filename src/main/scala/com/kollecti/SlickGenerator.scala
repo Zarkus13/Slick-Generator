@@ -3,7 +3,7 @@ package com.kollecti
 import scala.slick.driver.{PostgresDriver, JdbcDriver, MySQLDriver}
 import scala.slick.driver.MySQLDriver.simple._
 import scala.slick.jdbc.meta._
-import scala.slick.model.codegen.SourceCodeGenerator
+import scala.slick.codegen.SourceCodeGenerator
 
 /**
  * Created by Alexis on 24/02/14.
@@ -132,7 +132,10 @@ object SlickGenerator {
   def pluralize(str: String) = {
     "^*(s|x|z)$".r findFirstMatchIn str match {
       case Some(_) => str
-      case None => str + "s"
+      case None => "^(.*)y$".r findFirstMatchIn str match {
+        case Some(r) => r.group(1) + "ies"
+        case None => str + "s"
+      }
     }
   }
 
