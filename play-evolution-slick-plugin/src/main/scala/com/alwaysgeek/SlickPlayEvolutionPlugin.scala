@@ -3,7 +3,7 @@ package com.alwaysgeek
 import play.api.Application
 import play.api.db.evolutions._
 import com.alwaysgeek.SlickGenerator._
-import play.api.mvc.{SimpleResult, RequestHeader}
+import play.api.mvc.{Result, SimpleResult, RequestHeader}
 import play.core.BuildLink
 import java.io.File
 
@@ -28,7 +28,7 @@ abstract class SlickPlayEvolutionPlugin(app: Application) extends EvolutionsPlug
   val columnType: Option[String => Option[String]] = None // If None : calls super.rawType
   val columnEnabled: String => Boolean = name => true
 
-  override def handleWebCommand(request: RequestHeader, sbtLink: BuildLink, path: File): Option[SimpleResult] = {
+  override def handleWebCommand(request: RequestHeader, sbtLink: BuildLink, path: File): Option[Result] = {
     val result = super.handleWebCommand(request, sbtLink, path)
 
     generateTables()
