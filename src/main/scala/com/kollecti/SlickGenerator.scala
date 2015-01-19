@@ -1,4 +1,4 @@
-package com.alwaysgeek
+package com.kollecti
 
 import scala.slick.driver.{PostgresDriver, JdbcDriver, MySQLDriver}
 import scala.slick.driver.MySQLDriver.simple._

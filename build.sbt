@@ -1,4 +1,4 @@
-organization := "com.alwaysgeek"
+organization := "com.kollecti"
 
 name := "slick-generator"
 

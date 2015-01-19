@@ -1,8 +1,8 @@
-package com.alwaysgeek
+package com.kollecti
 
 import play.api.Application
 import play.api.db.evolutions._
-import com.alwaysgeek.SlickGenerator._
+import com.kollecti.SlickGenerator._
 import play.api.mvc.{Result, SimpleResult, RequestHeader}
 import play.core.BuildLink
 import java.io.File

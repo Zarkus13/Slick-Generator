@@ -1,4 +1,4 @@
-package com.alwaysgeek
+package com.kollecti
 
 import sbt._
 import sbt.Keys._
