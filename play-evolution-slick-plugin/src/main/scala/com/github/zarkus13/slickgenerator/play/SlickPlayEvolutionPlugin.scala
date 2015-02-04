@@ -1,11 +1,13 @@
-package com.kollecti
+package com.github.zarkus13.slickgenerator.play
 
+import java.io.File
+
+import com.github.zarkus13.slickgenerator.generator.{Driver, SlickGenerator}
+import com.github.zarkus13.slickgenerator.generator.SlickGenerator._
 import play.api.Application
 import play.api.db.evolutions._
-import com.kollecti.SlickGenerator._
-import play.api.mvc.{Result, SimpleResult, RequestHeader}
+import play.api.mvc.{RequestHeader, Result}
 import play.core.BuildLink
-import java.io.File
 
 /**
  * Created by Alexis on 13/03/14.

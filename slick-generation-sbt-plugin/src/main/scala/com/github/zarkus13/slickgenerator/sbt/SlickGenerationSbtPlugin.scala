@@ -1,4 +1,4 @@
-package com.kollecti
+package com.github.zarkus13.slickgenerator.sbt
 
 import sbt._
 import sbt.Keys._

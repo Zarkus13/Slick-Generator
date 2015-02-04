@@ -1,4 +1,4 @@
-package com.kollecti
+package com.github.zarkus13.slickgenerator.generator
 
 import scala.slick.driver.{PostgresDriver, JdbcDriver, MySQLDriver}
 import scala.slick.driver.MySQLDriver.simple._
