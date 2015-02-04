@@ -8,12 +8,14 @@ organization := "com.github.zarkus13"
 
 name := "slick-generation-sbt-plugin"
 
-version := "0.2.0"
+scalaVersion := "2.10.4"
+
+version := "0.1.0"
 
 sbtPlugin := true
 
 libraryDependencies ++= Seq(
-  "com.github.zarkus13" %% "slick-generator" % "0.2.0"
+  "com.github.zarkus13" %% "slick-generator" % "0.1.0"
 )
 
 profileName := "com.github.zarkus13"
