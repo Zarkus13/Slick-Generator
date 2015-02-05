@@ -10,7 +10,7 @@ name := "slick-generator"
 
 scalaVersion := "2.10.4"
 
-version := "0.1.0"
+version := "0.1.1"
 
 libraryDependencies ++= Seq(
   "com.typesafe.slick" %% "slick-codegen" % "2.1.0",

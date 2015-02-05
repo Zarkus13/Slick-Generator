@@ -10,12 +10,12 @@ name := "play-evolution-slick-plugin"
 
 scalaVersion := "2.10.4"
 
-version := "0.1.0"
+version := "0.1.1"
 
 libraryDependencies ++= Seq(
   "com.typesafe.play" %% "play" % "2.3.7",
   "com.typesafe.play" %% "play-jdbc" % "2.3.7",
-  "com.github.zarkus13" %% "slick-generator" % "0.1.0"
+  "com.github.zarkus13" %% "slick-generator" % "0.1.1"
 )
 
 resolvers += "Typesafe repository" at "http://repo.typesafe.com/typesafe/releases/"
