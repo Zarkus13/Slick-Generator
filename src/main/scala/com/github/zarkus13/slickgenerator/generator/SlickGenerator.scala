@@ -72,7 +72,10 @@ object SlickGenerator {
 
             override def entityName: (String) => String = eName getOrElse super.entityName
 
-            override def code = fileCode(super.code)
+            override def code = {
+              val pattern = "([a-zA-Z]+)(\\.tupled)".r
+              pattern.replaceAllIn(fileCode(super.code), matcher => "(" + matcher.group(1) + ".apply _)" + matcher.group(2))
+            }
 
             override def Table = new Table(_) {
 
