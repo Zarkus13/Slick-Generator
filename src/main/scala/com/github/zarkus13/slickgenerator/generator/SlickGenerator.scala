@@ -57,13 +57,12 @@ object SlickGenerator {
 
     db.withSession { implicit session =>
 
-      driver.driverClass.getTables
-        .list
+      driver.driverClass.defaultTables
+        .toList
         .filterNot(t => excludeTables.contains(t.name.name))
         .foreach(t => {
-          val model = createModel(
-            Seq(t),
-            MySQLDriver
+          val model = driver.driverClass.createModel(
+            Some(Seq(t))
           )
 
           val codeGen = new SourceCodeGenerator(model) {
