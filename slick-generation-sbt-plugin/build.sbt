@@ -8,17 +8,17 @@ organization := "com.github.zarkus13"
 
 name := "slick-generation-sbt-plugin"
 
-scalaVersion := "2.10.4"
+scalaVersion := "2.10.6"
 
-version := "0.1.1"
+version := "0.2.4.4"
 
 sbtPlugin := true
 
 libraryDependencies ++= Seq(
-  "com.github.zarkus13" %% "slick-generator" % "0.1.1"
+  "com.github.zarkus13" %% "slick-generator" % "0.2.4.4"
 )
 
-addSbtPlugin("com.etsy" % "sbt-compile-quick-plugin" % "0.5.0")
+addSbtPlugin("com.etsy" % "sbt-compile-quick-plugin" % "0.5.4")
 
 profileName := "com.github.zarkus13"
 

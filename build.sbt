@@ -8,9 +8,9 @@ organization := "com.github.zarkus13"
 
 name := "slick-generator"
 
-scalaVersion := "2.10.4"
+scalaVersion := "2.10.6"
 
-version := "0.1.1"
+version := "0.2.4.4"
 
 libraryDependencies ++= Seq(
   "com.typesafe.slick" %% "slick-codegen" % "2.1.0",

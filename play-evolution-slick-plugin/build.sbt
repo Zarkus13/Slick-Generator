@@ -8,14 +8,15 @@ organization := "com.github.zarkus13"
 
 name := "play-evolution-slick-plugin"
 
-scalaVersion := "2.10.4"
+scalaVersion := "2.10.6"
 
-version := "0.1.1"
+version := "0.2.4"
 
 libraryDependencies ++= Seq(
-  "com.typesafe.play" %% "play" % "2.3.7",
-  "com.typesafe.play" %% "play-jdbc" % "2.3.7",
-  "com.github.zarkus13" %% "slick-generator" % "0.1.1"
+  "com.typesafe.play" %% "play" % "2.4.4",
+  "com.typesafe.play" %% "play-jdbc" % "2.4.4",
+  "com.typesafe.play" %% "play-jdbc-evolutions" % "2.4.4",
+  "com.github.zarkus13" %% "slick-generator" % "0.2.4"
 )
 
 resolvers += "Typesafe repository" at "http://repo.typesafe.com/typesafe/releases/"
